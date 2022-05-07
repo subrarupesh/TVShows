@@ -1,0 +1,12 @@
+const express = require('express');
+const router = express.Router();
+const recommendationController = require('./../controllers/recommendations');
+// router.post('/', checkAuth, courseController.createCourse);
+// router.put('/:id', checkAuth, courseController.editCourse);
+// router.delete('/:id', checkAuth, courseController.removeCourse);
+// router.get('/', checkAuth, courseController.getCourses);
+router.get('/save/:id', recommendationController.saveRecommendation);
+router.post('/', recommendationController.getFullRecommendation);
+router.get('/:user_id', recommendationController.getShowRecommendation);
+router.get('/reset/:user_id', recommendationController.resetRecommendation);
+module.exports = router;
