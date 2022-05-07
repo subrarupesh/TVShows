@@ -1,0 +1,95 @@
+<div class="container">
+
+    <h1>Add Course</h1>
+
+    <a href="#" [routerLink]="['/courses']" class="btn btn-primary">Back</a> <br/>
+
+        
+
+    <form [formGroup]="form" (submit)="submit()">
+
+  
+
+        <div class="form-group">
+
+            <label for="title">Show Name:</label>
+                <input 
+
+                formControlName="name"
+
+                id="name" 
+
+                type="text"
+
+                placeholder="Show Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                  <div *ngIf="f.name.errors.required">Show Name is required</div>
+                </div>
+
+        </div> <br/>
+
+        <div class="form-group">
+
+            <label for="title">Show Description:</label>
+            <input 
+
+            formControlName="description"
+
+            id="title" 
+
+            type="text"
+
+            placeholder="Show Description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+
+            <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                <div *ngIf="f.description.errors.required">Course Description is required</div>
+            </div>
+
+        </div> <br/>
+
+        <div class="form-group">
+
+            <label for="languages">Cast:</label>
+
+            <input 
+
+            formControlName="cast"
+
+            id="title" 
+
+            type="text"
+
+            placeholder="Cast" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cast.errors }" />
+
+            <div *ngIf="submitted && f.cast.errors" class="invalid-feedback">
+                <div *ngIf="f.cast.errors.required">Cast is required</div>
+            </div>
+
+        </div> <br/>
+
+        <div class="form-group">
+
+            <label for="languages">Crew:</label>
+
+            <input 
+
+            formControlName="crew"
+
+            id="title" 
+
+            type="text"
+
+            placeholder="Crew" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.crew.errors }" />
+
+            <div *ngIf="submitted && f.crew.errors" class="invalid-feedback">
+                <div *ngIf="f.crew.errors.required">Cast is required</div>
+            </div>
+
+        </div> <br/>
+
+        <button class="btn btn-primary" type="submit" [disabled]="loading">Add Show</button>
+
+    </form>
+
+</div>

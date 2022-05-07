@@ -1,0 +1,63 @@
+<mat-toolbar style="background-color: coral; width: 4200px;">
+  <mat-toolbar-row>
+    <!-- <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button> -->
+    <div class="cg">
+      <svg width="100" height="100">
+        <circle cx="50" cy="50" r="25" fill="indigo" />
+        <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="30px" font-family="Arial" dy=".3em">LM</text>
+          Sorry, your browser does not support inline SVG.
+      </svg>
+    </div>
+    <h1 style="font-size:35px; color: slateblue">TVShow</h1>
+    <!-- <span class="menu-spacer"></span> -->
+    <mat-nav-list class="list-horizontal">
+      <a mat-list-item style="color:slateblue" [routerLink]="['/']"
+      routerLinkActive="active"> Home </a>
+      <a mat-list-item style="color:slateblue" *ngIf="canAccess()" [routerLink]="['/my-shows']"
+      routerLinkActive="active"> My Shows </a>
+      <a mat-list-item style="color:slateblue" *ngIf="canAccess()"
+      routerLinkActive="active" (click)="logout()">Logout</a>
+      <a mat-list-item style="color:slateblue" *ngIf="!canAccess()" [routerLink]="['/signup']"
+      routerLinkActive="active">SignUp</a>
+      <a mat-list-item style="color:slateblue" *ngIf="!canAccess()" [routerLink]="['/login']"
+      routerLinkActive="active">Login</a>
+    </mat-nav-list>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+      <span style="font-size: 18px;margin-left: 18px;
+      color:navy">An Online TV Show Platform.</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item style="color:slateblue" [routerLink]="['/']"> Home </a>
+      <mat-divider *ngIf="!canAccess()" style="background-color: grey"></mat-divider>
+      <a mat-list-item style="color:slateblue" *ngIf="canAccess()" [routerLink]="['/my-shows']"> My Shows</a>
+      <mat-divider *ngIf="canAccess()" style="background-color: grey"></mat-divider>
+      <a mat-list-item style="color:slateblue" *ngIf="canAccess()" [routerLink]="['/']" [matMenuTriggerFor]="menu"> Profile </a>
+      <mat-menu #menu="matMenu">
+        <button style="color:slateblue" mat-menu-item>Profile</button>
+        <button style="color:slateblue" mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+      <mat-divider *ngIf="canAccess()" style="background-color: grey"></mat-divider>
+      <a mat-list-item style="color:slateblue" *ngIf="canAccess()" [routerLink]="['/']"> Notifications </a>
+      <mat-divider *ngIf="canAccess()" style="background-color: grey"></mat-divider>
+      <a mat-list-item style="color:slateblue" *ngIf="canAccess()" [routerLink]="['/']"> FAQs </a>
+      <mat-divider *ngIf="canAccess()" style="background-color: grey"></mat-divider>
+      <a mat-list-item style="color:slateblue" *ngIf="canAccess()" [routerLink]="['/']"> Quiz </a>
+      <mat-divider *ngIf="canAccess()" style="background-color: grey"></mat-divider>
+      <a mat-list-item style="color:slateblue" *ngIf="!canAccess()" [matMenuTriggerFor]="menu1">Accounts</a>
+      <mat-menu #menu1="matMenu">
+        <button style="color:slateblue" mat-menu-item (click)="signUp()">SignUp</button>
+        <button style="color:slateblue" mat-menu-item (click)="login()">Login</button>
+      </mat-menu>
+      <mat-divider *ngIf="!canAccess()" style="background-color: lightgrey"></mat-divider>
+      <a mat-list-item style="color:slateblue" (click)="sidenav.toggle()">Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
+<router-outlet></router-outlet>

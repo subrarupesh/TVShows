@@ -1,0 +1,55 @@
+<div class="container" style="margin-left:252px;">
+    <div class="form-group col-md-4" style="width:300px;">
+      <br/>
+      <label for="languages">Recommendation:</label>
+
+      <ng-select [items]="shows"
+          [searchable]="true"
+          bindLabel="name"
+          bindValue="_id"
+          placeholder="Search Your Show" 
+          (change)="selectShow($event)" >
+
+      </ng-select>
+
+     </div> <br/>
+
+</div>
+<div class="container">
+
+  <h1>Shows</h1>
+  
+  <button class="btn btn-success" style="margin-left:1px;
+  margin-bottom: 20px" type="button" (click)="addShow()"> Add Show </button> <br/>
+  <button class="btn btn-success" style="margin-left:1px;
+  margin-bottom: 20px" type="button" (click)="resetRecommendation()"> Reset Recommendation </button> <br/>
+  <table class="table table-bordered" *ngIf="shows !== undefined && shows.length > 0">
+
+    <tr>
+
+      <th>Show Name</th>
+
+      <th>Description</th>
+
+      <th width="220px">Action</th>
+
+    </tr>
+
+    <tr *ngFor="let show of shows">
+
+      <td>{{ show.name }}</td>
+
+      <td> {{show.description}} </td>
+      <td>
+
+        <button class="btn btn-info" type="button" (click)="saveRecommendation(show)">Edit Recommendation</button>
+
+        <button class="btn btn-info" type="button" (click)="deleteShow(show)">Delete Show</button>
+
+      </td>
+
+    </tr>
+
+  </table>
+
+</div>

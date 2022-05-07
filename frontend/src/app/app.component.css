@@ -1,0 +1,35 @@
+.cg {
+    margin-top: 10px;
+  }
+  .outerContainer {
+    padding: 5px;
+    border: 1px solid #b6b6b6;
+    box-sizing: content-box;
+  }
+  div.container {
+    color: #eeeeee;
+    margin-bottom: 10px;
+  }
+  
+  div.container > div {
+    height: 50px;
+    width: 50px;
+    background-color: blue;
+  }
+.menu-spacer {
+    flex: 1 1 auto;
+  }
+.list-horizontal {
+    padding: 0;
+    margin-left:52px;
+    margin-right: 560px;
+}
+.list-horizontal .mat-list-item {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    color: white;
+}
+.active {
+  background-color: grey;
+}
